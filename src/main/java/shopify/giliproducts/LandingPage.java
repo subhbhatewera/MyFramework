@@ -33,6 +33,9 @@ public class LandingPage {
 	@FindBy(xpath = "//a[contains(@href,'login')]")
 	WebElement loginLink ;
 	
+	@FindBy(xpath = "//a[contains(@href,'account')]")
+	WebElement accountLink ;
+	
 	public LandingPage(WebDriver driver) {
 		this.driver = driver ;
 		PageFactory.initElements(driver, this);
