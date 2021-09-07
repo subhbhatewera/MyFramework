@@ -16,8 +16,15 @@ public class ReadData {
 	}
 
 	@DataProvider(name="Simple Order Data")
-	public  Object[][] simpleOrderData() {
-		excel = new ExcelReader(Base.path+"/TestData.xlsx", "Simple Order");
+	public  Object[][] mensPantsData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "MensPant");
+		Object data[][] = excel.getData();
+		return data;
+	}
+	
+	@DataProvider(name="Multiple Quantity Order Data")
+	public  Object[][] mensTopsData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "MensTop");
 		Object data[][] = excel.getData();
 		return data;
 	}

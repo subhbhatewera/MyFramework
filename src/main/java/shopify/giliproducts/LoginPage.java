@@ -34,7 +34,7 @@ public class LoginPage {
 	public void enterEmail(String email) {
 		log.debug("Waiting for visibility of emailTextField");
 		reuseable.waitForVisibility(emailTextField);
-		log.debug("Enter data in emailTextField");
+		log.debug("Enter "+email+ " in emailTextField");
 		emailTextField.sendKeys(email);
 	}
 	

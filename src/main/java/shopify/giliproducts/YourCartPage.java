@@ -60,6 +60,7 @@ public class YourCartPage {
 		log.debug("Waiting for visibility of quantityTextField");
 		reuseable.waitForVisibility(quantityTextField);
 		log.debug("Enter data in quantityTextField");
+		quantityTextField.clear();
 		quantityTextField.sendKeys(quantity);
 	}
 

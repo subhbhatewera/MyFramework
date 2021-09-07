@@ -2,14 +2,14 @@ package shopify.giliproducts;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import resources.Base;
 import util.ReadData;
 
-public class PlaceOrderMensPants extends Base{
+public class PlaceOrderMensPantsTest extends Base{
 	
 	WebDriver driver ;
 	LandingPage landing;
@@ -23,7 +23,7 @@ public class PlaceOrderMensPants extends Base{
 	OrderConfirmationPage orderConfirmation;
 	MyAccountPage myAccount;
 	
-	@BeforeTest
+	@BeforeClass
 	public void setUp() {
 		driver = invokeBrowser();
 		driver.get("https://gili-products.myshopify.com");
@@ -75,7 +75,7 @@ public class PlaceOrderMensPants extends Base{
 		myAccount.clickOnLogout();			
 	}
 	
-	@AfterTest
+	@AfterClass
 	public void tearDown() {
 		driver.quit();	
 	}
