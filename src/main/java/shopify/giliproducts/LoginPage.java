@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
 import util.ReuseableMethods;
 
 public class LoginPage {
@@ -29,26 +30,34 @@ public class LoginPage {
 		this.driver = driver ;
 		PageFactory.initElements(driver, this);
 		reuseable = new ReuseableMethods(driver);
+		log.info("LoginPage object created");
+		Base.logExtentReport("LoginPage object created");
 	}
 	
 	public void enterEmail(String email) {
-		log.debug("Waiting for visibility of emailTextField");
+		log.info("Waiting for visibility of emailTextField");
+		Base.logExtentReport("Waiting for visibility of emailTextField");
 		reuseable.waitForVisibility(emailTextField);
-		log.debug("Enter "+email+ " in emailTextField");
+		log.info("Enter "+email+ " in emailTextField");
+		Base.logExtentReport("Enter "+email+ " in emailTextField");
 		emailTextField.sendKeys(email);
 	}
 	
 	public void enterPassword(String password) {
-		log.debug("Waiting for visibility of passwordTextField");
+		log.info("Waiting for visibility of passwordTextField");
+		Base.logExtentReport("Waiting for visibility of passwordTextField");
 		reuseable.waitForVisibility(passwordTextField);
-		log.debug("Enter data in passwordTextField");
+		log.info("Enter data in passwordTextField");
+		Base.logExtentReport("Enter data in passwordTextField");
 		passwordTextField.sendKeys(password);
 	}
 	
 	public MyAccountPage clickOnSigninButton() {
-		log.debug("Waiting for visibility of signInButtton");
+		log.info("Waiting for visibility of signInButtton");
+		Base.logExtentReport("Waiting for visibility of signInButtton");
 		reuseable.waitForVisibility(signInButtton);
-		log.debug("Click on signInButtton");
+		log.info("Click on signInButtton");
+		Base.logExtentReport("Click on signInButtton");
 		signInButtton.click();
 		return new MyAccountPage(driver);
 	}

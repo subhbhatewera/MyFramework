@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
 import util.ReuseableMethods;
 
 public class OrderConfirmationPage {
@@ -29,10 +30,13 @@ public class OrderConfirmationPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 		reuseable=new ReuseableMethods(driver);
+		log.info("OrderConfirmationPage object created");
+		Base.logExtentReport("OrderConfirmationPage object created");
 	}
 	
 	public String getOrderConfirmation() {
-		log.debug("Waiting for visibility of orderNumberLabel");
+		log.info("Waiting for visibility of orderNumberLabel");
+		Base.logExtentReport("Waiting for visibility of orderNumberLabel");
 		reuseable.waitForVisibility(orderNumberLabel);
 		String labelText = thankYouTextLabel.getText();
 		String formatedText =labelText.substring(0, 9);
@@ -40,17 +44,22 @@ public class OrderConfirmationPage {
 	}
 	
 	public String getOrderNumber() {
-		log.debug("Waiting for visibility of orderNumberLabel");
+		log.info("Waiting for visibility of orderNumberLabel");
+		Base.logExtentReport("Waiting for visibility of orderNumberLabel");
 		reuseable.waitForVisibility(orderNumberLabel);
 		String labelText = orderNumberLabel.getText();
 		String orderNumber = labelText.substring(6);
+		log.info("Order numer is ->>>>> "+orderNumber);
+		Base.logExtentReport("Order numer is ->>>>> "+orderNumber);
 		return orderNumber;
 	}
 	
 	public LandingPage clickOnContinueShoppingButton() {
-		log.debug("Waiting for visibility of continueShoppingButton");
+		log.info("Waiting for visibility of continueShoppingButton");
+		Base.logExtentReport("Waiting for visibility of continueShoppingButton");
 		reuseable.waitForVisibility(continueShoppingButton);
-		log.debug("Click on continueShoppingButton");
+		log.info("Click on continueShoppingButton");
+		Base.logExtentReport("Click on continueShoppingButton");
 		continueShoppingButton.click();
 		return new LandingPage(driver);
 	}

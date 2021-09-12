@@ -4,12 +4,12 @@
 		<Property name="basePath">./logs</Property>
 	</Properties>
 	<Appenders>
-		<RollingFile name="DebugLogger"
-			fileName="${basePath}/Debug.log"
+		<RollingFile name="InfoLogger"
+			fileName="${basePath}/Info.log"
 			filePattern="${basePath}/mavenlogs-%d{yyyy-MM-dd}.log">
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-			<SizeBasedTriggeringPolicy size="50000" />
+			<SizeBasedTriggeringPolicy size="500000" />
 		</RollingFile>
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout
@@ -19,7 +19,7 @@
 	<Loggers>
 		<Root level="trace">
 			<AppenderRef ref="Console" />
-			<AppenderRef ref="DebugLogger" />
+			<AppenderRef ref="InfoLogger" />
 		</Root>
 	</Loggers>
 </Configuration>

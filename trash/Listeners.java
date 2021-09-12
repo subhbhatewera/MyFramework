@@ -14,7 +14,7 @@ import resources.ExtentReportNG;
 
 public class Listeners extends Base implements ITestListener{
 	
-	ExtentReports extent = ExtentReportNG.getExtentReportObject();
+	ExtentReports extent = ExtentReportNG.createInstance();
 	ExtentTest test ;
 
 	public void onTestStart(ITestResult result) {

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
 import util.ReuseableMethods;
 
 public class YourCartPage {
@@ -32,34 +33,44 @@ public class YourCartPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 		reuseable = new ReuseableMethods(driver);
+		log.info("YourCartPage object created");
+		Base.logExtentReport("YourCartPage object created");
 	}
 	
 	public void clickOnRemoveButton() {
-		log.debug("Waiting for visibility of removeButton");
+		log.info("Waiting for visibility of removeButton");
+		Base.logExtentReport("Waiting for visibility of removeButton");
 		reuseable.waitForVisibility(removeButton);
-		log.debug("Click on removeButton");
+		log.info("Click on removeButton");
+		Base.logExtentReport("lick on removeButton");
 		removeButton.click();
 	}
 	
 	public void clickOnUpdateButton() {
-		log.debug("Waiting for visibility of updateButton");
+		log.info("Waiting for visibility of updateButton");
+		Base.logExtentReport("Waiting for visibility of updateButton");
 		reuseable.waitForVisibility(updateButton);
-		log.debug("Click on updateButton");
+		log.info("Click on updateButton");
+		Base.logExtentReport("Click on updateButton");
 		updateButton.click();
 	}
 	
 	public InformationPage clickOnCheckOutButton() {
-		log.debug("Waiting for visibility of checkOutButton");
+		log.info("Waiting for visibility of checkOutButton");
+		Base.logExtentReport("Waiting for visibility of checkOutButton");
 		reuseable.waitForVisibility(checkOutButton);
-		log.debug("Click on checkOutButton");
+		log.info("Click on checkOutButton");
+		Base.logExtentReport("Click on checkOutButton");
 		checkOutButton.click();
 		return new InformationPage(driver);
 	}
 	
 	public void enterQuantity(String quantity) {
-		log.debug("Waiting for visibility of quantityTextField");
+		log.info("Waiting for visibility of quantityTextField");
+		Base.logExtentReport("Waiting for visibility of quantityTextField");
 		reuseable.waitForVisibility(quantityTextField);
-		log.debug("Enter data in quantityTextField");
+		log.info("Enter data in quantityTextField");
+		Base.logExtentReport("Enter data in quantityTextField");
 		quantityTextField.clear();
 		quantityTextField.sendKeys(quantity);
 	}

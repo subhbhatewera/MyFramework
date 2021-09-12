@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
+
 public class ProductsPage {
 
 	WebDriver driver ;
@@ -22,6 +24,8 @@ public class ProductsPage {
 	public ProductsPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
+		log.info("ProductsPage object created");
+		Base.logExtentReport("ProductsPage object created");
 	}
 
 	public void selectProduct(String[] requiredProducts) {
@@ -47,7 +51,8 @@ public class ProductsPage {
 			String actualProductName = option.getText();
 			if(actualProductName.equalsIgnoreCase(requiredProductName)) {
 				productList.get(count).click();
-				log.debug("Select Product "+actualProductName);
+				log.info("Select Product "+actualProductName);
+				Base.logExtentReport("Select Product "+actualProductName);
 				break;
 			}
 			count++;

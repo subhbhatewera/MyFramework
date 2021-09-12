@@ -35,4 +35,13 @@ public class ReuseableMethods {
 		act = new Actions(driver);
 		act.moveToElement(element).click().sendKeys(input).build().perform();
 	}
+	
+	public void mySleep(long time) {
+		try {
+			Thread.sleep(time);
+		}
+		catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 } 

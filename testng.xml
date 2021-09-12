@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Gili Products Automation Suite">
-	<listeners>
-	 <listener class-name="shopify.giliproducts.Listeners" />
-	</listeners>
-	<test name="Create Orders Tests">
+	<test name="Test1">
 		<classes>
 			<class name="shopify.giliproducts.PlaceOrderMensPantsTest" />
+		</classes>
+	</test>
+	<test name="Test2">
+		<classes>
 			<class name="shopify.giliproducts.PlaceOrderMensTopsTest" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
+	<test name="Test3">
+		<classes>
+			<class name="shopify.giliproducts.PlaceOrderWomensPantsTest" />
+		</classes>
+	</test>
+	<test name="Test4">
+		<classes>
+			<class name="shopify.giliproducts.PlaceOrderWomensTopsTest" />
+		</classes>
+	</test>
+	<test name="Test5">
+		<classes>
+			<class name="shopify.giliproducts.PlaceOrderOuterwearTest" />
+		</classes>
+	</test>
+	<test name="Test6">
+		<classes>
+			<class name="shopify.giliproducts.PlaceOrderSkirtsTest" />
+		</classes>
+	</test>
+	<test name="Test7">
+		<classes>
+			<class name="shopify.giliproducts.PlaceOrderScarvesTest" />
+		</classes>
+	</test>
 </suite> <!-- Suite -->

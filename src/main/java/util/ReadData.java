@@ -28,4 +28,39 @@ public class ReadData {
 		Object data[][] = excel.getData();
 		return data;
 	}
+	
+	@DataProvider(name="Coupon Code Order Data")
+	public  Object[][] womenPantsData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "WomensPant");
+		Object data[][] = excel.getData();
+		return data;
+	}
+	
+	@DataProvider(name="Womens Tops Data")
+	public  Object[][] womenTopsData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "WomensTops");
+		Object data[][] = excel.getData();
+		return data;
+	}
+	
+	@DataProvider(name="Outerwear Data")
+	public  Object[][] outerwearData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "Outerwear");
+		Object data[][] = excel.getData();
+		return data;
+	}
+	
+	@DataProvider(name="Skirts Data")
+	public  Object[][] skirtsData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "Skirts");
+		Object data[][] = excel.getData();
+		return data;
+	}
+	
+	@DataProvider(name="Scarves Data")
+	public  Object[][] scarvesData() {
+		excel = new ExcelReader(Base.path+"/TestData.xlsx", "Scarves");
+		Object data[][] = excel.getData();
+		return data;
+	}
 }

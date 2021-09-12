@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
 import util.ReuseableMethods;
 
 public class ShippingPage {
@@ -34,17 +35,21 @@ public class ShippingPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 		reuseable = new ReuseableMethods(driver);
+		log.info("ShippingPage object created");
+		Base.logExtentReport("ShippingPage object created");
 	}
 	
 	public void selectShipping(String requiredShipping) {
-		log.debug("Waiting for Shipping Rates");
+		log.info("Waiting for Shipping Rates");
+		Base.logExtentReport("Waiting for Shipping Rates");
 		reuseable.waitForClickable(continueToPaymentButton);
 		int count = 0 ;		
 		for(WebElement option : shippingRatesList) {
 			String actualShipping = option.getText();			
 			if(actualShipping.contains(requiredShipping)) {
 				shippingRatesList.get(count).click();
-				log.debug("Select Shipping "+actualShipping);
+				log.info("Select Shipping "+actualShipping);
+				Base.logExtentReport("Select Shipping "+actualShipping);
 				break ;
 			}
 			count++;
@@ -52,12 +57,12 @@ public class ShippingPage {
 	}
 	
 	public PaymentPage clickOnContinueToPaymentButton() {
-		log.debug("Waiting for visibility of continueToPaymentButton");
+		log.info("Waiting for visibility of continueToPaymentButton");
+		Base.logExtentReport("Waiting for visibility of continueToPaymentButton");
 		reuseable.waitForVisibility(continueToPaymentButton);
-		log.debug("Click on continueToPaymentButton");
+		log.info("Click on continueToPaymentButton");
+		Base.logExtentReport("Click on continueToPaymentButton");
 		continueToPaymentButton.click();
 		return new PaymentPage(driver);
 	}
-	
-
 }

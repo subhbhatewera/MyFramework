@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import resources.Base;
 import util.ReuseableMethods;
 
 public class ProductDetailsPage {
@@ -26,13 +27,17 @@ public class ProductDetailsPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 		reuseable = new ReuseableMethods(driver);
+		log.info("ProductDetailsPage object created");
+		Base.logExtentReport("ProductDetailsPage object created");
 	}
 	
 	public YourCartPage clickOnAddToCartButton() {
-		log.debug("Waiting for visibility of addToCartButton");
+		log.info("Waiting for visibility of addToCartButton");
+		Base.logExtentReport("Waiting for visibility of addToCartButton");
 		reuseable.waitForVisibility(addToCartButton);
 		addToCartButton.click();
-		log.debug("Click on addToCartButton");
+		log.info("Click on addToCartButton");
+		Base.logExtentReport("Click on addToCartButton");
 		return new YourCartPage(driver);
 	}
 

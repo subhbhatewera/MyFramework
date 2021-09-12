@@ -31,8 +31,10 @@ public class PlaceOrderMensTopsTest extends Base{
 	}
 	
 	@Test(dataProviderClass = ReadData.class, dataProvider = "Multiple Quantity Order Data")
-	public void placeMultipleQuantityOrder(String username, String password, String productName, String quantity, String shippigRate,
+	public void placeOrderBySelectingMensTops(String username, String password, String productName, String quantity, String shippigRate,
 			String cardNumber, String nameOnCard, String expiryDate, String securityCode) {
+		
+		driver.manage().deleteAllCookies();
 		
 		login = landing.clickOnLoginLink();
 		

@@ -7,7 +7,7 @@ public class ExtentReportNG {
 	
 	static ExtentReports extent ;
 	
-	public static ExtentReports getExtentReportObject() {
+	public static ExtentReports createInstance() {
 		ExtentSparkReporter reporter = new ExtentSparkReporter(Base.path+"/reports/index.html");
 		reporter.config().setReportName("Gili Products Automation Suite Report");
 		reporter.getConf().setDocumentTitle("Gili Products Automation Test Results");

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import resources.Base;
 import util.ReadData;
 
-public class PlaceOrderMensPantsTest extends Base{
+public class PlaceOrderWomensTopsTest extends Base{
 	
 	WebDriver driver ;
 	LandingPage landing;
@@ -30,9 +30,9 @@ public class PlaceOrderMensPantsTest extends Base{
 		landing = new LandingPage(driver);
 	}
 	
-	@Test(dataProviderClass = ReadData.class, dataProvider = "Simple Order Data")
-	public void placeOrderBySelectingMensPants(String username, String password, String productName, String shippigRate,
-			String cardNumber, String nameOnCard, String expiryDate, String securityCode) {
+	@Test(dataProviderClass = ReadData.class, dataProvider = "Womens Tops Data")
+	public void placeOrderBySelectingWomensTops(String username, String password, String productName,  
+			String shippigRate,	String cardNumber, String nameOnCard, String expiryDate, String securityCode) {
 		
 		driver.manage().deleteAllCookies();
 		
@@ -44,7 +44,7 @@ public class PlaceOrderMensPantsTest extends Base{
 		
 		Assert.assertTrue(flag);
 		
-		products = landing.clickOnMensPantsLink();
+		products = landing.clickOnWomensTopsLink();
 		
 		productDetails = products.selectProduct(productName);
 		
