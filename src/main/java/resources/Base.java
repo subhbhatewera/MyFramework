@@ -104,5 +104,17 @@ public class Base {
 		}
 		return target ;
 	}
+	
+	public void openLandingPage() {
+		log.info("Opening landing page");
+		logExtentReport("Opening landing page");
+		driver.get(prop.getProperty("url"));
+	}
+	
+	public void deleteCookies() {
+		log.info("Delete Cookies");
+		logExtentReport("Delete Cookies");
+		driver.manage().deleteAllCookies();
+	}
 
 }

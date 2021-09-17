@@ -3,6 +3,7 @@ package shopify.giliproducts;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -24,17 +25,21 @@ public class PlaceOrderOuterwearTest extends Base{
 	MyAccountPage myAccount;
 	
 	@BeforeClass
-	public void setUp() {
-		driver = invokeBrowser();
-		driver.get("https://gili-products.myshopify.com");
-		landing = new LandingPage(driver);
+	public void setUp() {	
+		
+		driver = invokeBrowser();	
+		
+		landing = new LandingPage(driver);	
+		
+		openLandingPage();	
+		
 	}
 	
 	@Test(dataProviderClass = ReadData.class, dataProvider = "Outerwear Data")
 	public void placeOrderBySelectingOuterwear(String username, String password, String productName, String shippigRate,
 			String cardNumber, String nameOnCard, String expiryDate, String securityCode) {
 		
-		driver.manage().deleteAllCookies();
+		deleteCookies();
 		
 		login = landing.clickOnLoginLink();
 		
@@ -72,15 +77,24 @@ public class PlaceOrderOuterwearTest extends Base{
 		
 		orderConfirmation.clickOnContinueShoppingButton();
 		
-		landing.clickOnAccountLink();
+	}
+	
+	@AfterMethod
+	public void logOut() {
 		
-		myAccount.clickOnLogout();			
+		openLandingPage();
+		
+		landing.clickOnAccountLink();
+
+		myAccount.clickOnLogout();	
+		
 	}
 	
 	@AfterClass
 	public void tearDown() {
+		
 		driver.quit();	
+		
 	}
-	
 	
 }
